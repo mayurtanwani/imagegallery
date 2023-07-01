@@ -1,0 +1,7 @@
+.deletespan {
+  display: none;
+}
+
+.img-wrapper:hover .deletespan {
+  display: block;
+}

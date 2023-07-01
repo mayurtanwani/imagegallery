@@ -1,0 +1,92 @@
+<div class="header d-flex align-items-center justify-content-center">
+  <h1>Images Gallery</h1>
+</div>
+
+<div class="container">
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Upload Image</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <form [formGroup]="imageForm" (ngSubmit)="submitForm()">
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Title</label>
+          <input
+            type="text"
+            formControlName="title"
+            class="form-control mb-3 mt-3"
+            placeholder="enter title"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>caption</label>
+          <input
+            type="text"
+            formControlName="caption"
+            class="form-control mb-3 mt-3"
+            placeholder="enter title"
+          />
+        </div>
+
+        <div>
+          <input
+            style="display: none"
+            id="uploadfile"
+            type="file"
+            class="file-upload"
+            (change)="uploadImage($event)"
+            #file
+          />
+          <button type="button" (click)="file.click()" class="btn btn-primary">
+            Add Image
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+      >
+        Cancel
+      </button> -->
+
+        <button type="submit" class="btn btn-primary">submit</button>
+      </div>
+    </form>
+  </ng-template>
+  <div>
+    <!-- <input
+      style="display: none"
+      id="uploadfile"
+      type="file"
+      class="file-upload"
+      (change)="uploadImage($event)"
+      #file
+    />
+    <button
+      (click)="file.click()"
+      style="float: right; margin-right: 30px"
+      class="btn btn-primary mt-5 mb-5"
+    >
+      Add Image
+    </button> -->
+
+    <button
+      (click)="open(mymodal)"
+      style="float: right; margin-right: 30px"
+      class="btn btn-primary mt-5 mb-5"
+    >
+      Add Image
+    </button>
+  </div>
+</div>
